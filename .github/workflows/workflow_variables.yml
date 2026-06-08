@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Testing workflow variables
+
+# Controls when the workflow will run
+on: 
+  workflow_dispatch
+env:
+  cloud: google-cloud
+ 
+jobs:
+  greetings_job:
+    runs-on: ubuntu-latest
+    env:
+      Greetings: Hello
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: "Say Hello Mona its Monday"
+        run: echo "$Greetings $First_Name is using $cloud"
+        env:
+          First_Name: vishal
