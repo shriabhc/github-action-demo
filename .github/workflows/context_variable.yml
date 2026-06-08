@@ -1,20 +1,28 @@
-name: Testing Context Varibable
+# This is a basic workflow to help you get started with Actions
 
-on:
+name: Testing context variables
+
+# Controls when the workflow will run
+on: 
   workflow_dispatch
-    
 env:
-  cloud: google.cloud
-
+  cloud: google-cloud
+ 
 jobs:
   test_context_varibles:
     runs-on: ubuntu-latest
+    
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: "Checking context variable"
-        run:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: "Say Hello to vishal"
+        run: |
           echo "Repository name : ${{ github.repository }}"
           echo "Workflow name : ${{ github.workflow }}"
           echo "Triggerd by : ${{ github.triggering_actor }}"
+          
+
+
           
           
       
