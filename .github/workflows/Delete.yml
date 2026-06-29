@@ -25,10 +25,7 @@ jobs:
           echo "Deleting specified files/folders..."
 
           # Add paths to delete below
-          rm -rf path/to/file1.txt
-          rm -rf path/to/folder1
-          rm -rf path/to/file2.log
-          rm -rf path/to/folder2
+          rm -rf Abhi/demo.txt
 
       - name: Commit and push changes
         run: |
