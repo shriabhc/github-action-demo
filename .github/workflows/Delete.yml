@@ -1,0 +1,40 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Delete-Files
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "test" ]
+  
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  delete-items:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Delete files and folders
+        run: |
+          echo "Deleting specified files/folders..."
+
+          # Add paths to delete below
+          rm -rf path/to/file1.txt
+          rm -rf path/to/folder1
+          rm -rf path/to/file2.log
+          rm -rf path/to/folder2
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add -A
+          git commit -m "Remove specified files and folders" || echo "No changes to commit"
+          git push
